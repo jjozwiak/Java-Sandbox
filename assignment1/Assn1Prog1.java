@@ -132,5 +132,7 @@ public class Assn1Prog1 {
             System.out.println(weekAverage);
         }
 
+        inputFile.close();
+
     }
 }

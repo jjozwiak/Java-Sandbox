@@ -1,80 +1,82 @@
-public class Exercises {
-    public static void main(String[] args) {
+import java.util.Scanner;
+import java.util.Random;
 
-        /**
-         * Exercise1 Name, Age, and Annual Income
-         */
-        
-        // String name = "Jason Jozwiak";
-        // int age = 28;
-        // double annualPay = 1000000.00;
+public class Assn1Prog4 {
+    public static void main(String[] args){
 
-        // System.out.println("My name is " + name + ", my age is " + age + " and I hope to earn $" + annualPay + " a year.");
-        
-        /**
-         * Exercise2 Name and Initials
-         */
-        
-        // String firstName = "Jason";
-        // String middleName = "David";
-        // String lastName = "Jozwiak";
+        int totalPlayerWins = 0;
+        int totalComputerWins = 0;
+        int ties = 0;
+        int playerValue = -1;
 
-        // char firstInitial = 'J';
-        // char middleInitial = 'D';
-        // char lastInitial = 'J';
+        //System.out.println("Please enter a 1 for rock, 2 for paper, or 3 for scissors.");
 
-        // System.out.println(firstName);
-        // System.out.println(middleName);
-        // System.out.println(lastName);
-        // System.out.println(firstInitial);
-        // System.out.println(middleInitial);
-        // System.out.println(lastInitial);
+        Scanner keyboard = new Scanner(System.in);
 
-        /**
-         * Exercise3 Personal Information
-         */
+        //for(int i = 0; i <= 5 ; i++){
+        while(playerValue != 0)
+        {
 
-        // String name = "Jangles", 
-        //         address = "123 test dr.", 
-        //         city = "Chicago", 
-        //         state = "IL", 
-        //         zip = "695432", 
-        //         phone = "1234567", 
-        //         major = "programming";
+            System.out.println("1, 2, or 3?");
 
-        // System.out.println(name + "\n" + address + ", " + city + ", " + state + ", " + zip + "\n" + phone + "\n" + major);
-        //
+            playerValue = keyboard.nextInt();
 
-        /**
-         * Exercise4 Star Pattern
-         */
+            while(playerValue < 0 || playerValue > 3)
+            {
+                System.out.println("Sorry that is not a valid option.");
+                System.out.println("Please enter a 1, 2, or 3");
 
-        // System.out.println("    *    ");
-        // System.out.println("   ***   ");
-        // System.out.println("  *****  ");
-        // System.out.println(" ******* ");
-        // System.out.println("  *****  ");
-        // System.out.println("   ***   ");
-        // System.out.println("    *    ");
+                playerValue = keyboard.nextInt();
+            }
 
-        /**
-         * Exercise5 Sum of Two Numbers
-         */
-        
-        // int value1 = 62;
-        // int value2 = 99;
-        // int total = value1 + value2;
 
-        // System.out.println(total);
-        
-        /**
-         * Exercise6 Sales Prediction
-         */
-        
-        double salesPercentage = 0.62;
-        double salesTotal = 4600000;
+            if(playerValue != 0)
+            {
+                Random rand = new Random();
 
-        
-        
+                // nextInt is normally exclusive of the top value,
+                // so add 1 to make it inclusive
+                int computer = rand.nextInt(3)+1;
+
+                if(playerValue == computer )
+                {
+                    ++ties;
+                }
+                else
+                {
+                    if(computer == 1 && playerValue == 2)
+                    {
+                        ++totalPlayerWins;
+                    }
+                    else if(computer == 1 && playerValue == 3)
+                    {
+                        ++totalComputerWins;
+                    }
+                    else if(computer == 2 && playerValue == 1)
+                    {
+                        ++totalComputerWins;
+                    }
+                    else if(computer == 2 && playerValue == 3)
+                    {
+                        ++totalPlayerWins;
+                    }
+                    else if(computer == 3 && playerValue == 1)
+                    {
+                        ++totalPlayerWins;
+                    }
+                    else
+                    {
+                        //computer equals 3 and playerValue equals 2
+                        ++totalComputerWins;
+                    }
+                }
+            }
+        }
+
+        System.out.println("Total player wins " + totalPlayerWins);
+        System.out.println("Total computer wins " + totalComputerWins);
+        System.out.println("Total ties " + ties);
+
+
     }
 }

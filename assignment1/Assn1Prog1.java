@@ -1,15 +1,22 @@
 import java.util.Scanner;
 import java.io.*;
 
-public class Assn1Prog1 {
-    public static void main(String[] args) throws IOException{
-
-        final String OUTPUT_FILE_NAME = "weekaverages.txt";        
+public class Assn1Prog1 
+{
+    public static void main(String[] args)
+    {      
 
         int totalNumberOfWeeks = 0;
         int totalDaysGreaterThanZero = 0;
         int totalWeeksGreaterThanZero = 0;
         int totalDaysWithZero = 0;
+
+        double weekOneAverage = 0;
+        double weekTwoAverage = 0;
+        double weekThreeAverage = 0;
+        double weekFourAverage = 0;
+        double weekFiveAverage = 0;
+        double weekSixAverage = 0;
 
         double day1Totals = 0;
         double day2Totals = 0;
@@ -19,18 +26,15 @@ public class Assn1Prog1 {
         double day6Totals = 0;
         double day7Totals = 0;
 
-        //create new file to hold weekly averages
-        PrintWriter newOutputFile = new PrintWriter(OUTPUT_FILE_NAME);
-
         Scanner keyboard = new Scanner(System.in);
 
-        System.out.println("How many weeks of rainfall are you going to record?");
+        System.out.println("How many weeks of rainfall are you going to record? Please enter a number from one to six.");
 
         totalNumberOfWeeks = keyboard.nextInt();
 
         //Loop validation. Make sure user enters a valid number
-        while(totalNumberOfWeeks <= 0) {
-            System.out.println("You must enter a number greater than 0.");
+        while(totalNumberOfWeeks <= 0 || totalNumberOfWeeks > 6) {
+            System.out.println("You must enter a number from one to six.");
             System.out.println("How many weeks of rainfall are you going to record?");
 
             totalNumberOfWeeks = keyboard.nextInt();
@@ -93,10 +97,28 @@ public class Assn1Prog1 {
                 }
             }
 
-            FileWriter fwriter = new FileWriter(OUTPUT_FILE_NAME, true);
-            PrintWriter outputFile = new PrintWriter(fwriter);
-            outputFile.printf("Week " + i + " average: %.2f \n", currentWeekTotal/7);
-            outputFile.close();
+
+            switch(i)
+            {
+                case 1:
+                    weekOneAverage = currentWeekTotal/7;
+                    break;
+                case 2:
+                    weekTwoAverage = currentWeekTotal/7;
+                    break;
+                case 3:
+                    weekThreeAverage = currentWeekTotal/7;
+                    break;
+                case 4:
+                    weekFourAverage = currentWeekTotal/7;
+                    break;
+                case 5:
+                    weekFiveAverage = currentWeekTotal/7;
+                    break;
+                case 6:
+                    weekSixAverage = currentWeekTotal/7;
+                    break;
+            }
         }        
 
         double totalInchesOfRain = day1Totals + day2Totals + day3Totals + day4Totals + day5Totals + day6Totals + day7Totals;
@@ -122,17 +144,29 @@ public class Assn1Prog1 {
         System.out.printf("Day6 Average: %.2f \n", day6Average);
         System.out.printf("Day7 Average: %.2f \n", day7Average);
 
-        File file = new File(OUTPUT_FILE_NAME);
-        Scanner inputFile = new Scanner(file);
-
-        while(inputFile.hasNext())
+        for(int i = 1; i <= totalNumberOfWeeks; i++)
         {
-            String weekAverage = inputFile.nextLine();
-
-            System.out.println(weekAverage);
+            switch(i)
+            {
+                case 1:
+                    System.out.printf("Week " + i + " average: %.2f \n", weekOneAverage);
+                    break;
+                case 2:
+                    System.out.printf("Week " + i + " average: %.2f \n", weekTwoAverage);
+                    break;
+                case 3:
+                    System.out.printf("Week " + i + " average: %.2f \n", weekThreeAverage);
+                    break;
+                case 4:
+                    System.out.printf("Week " + i + " average: %.2f \n", weekFourAverage);
+                    break;
+                case 5:
+                    System.out.printf("Week " + i + " average: %.2f \n", weekFiveAverage);
+                    break;
+                case 6:
+                    System.out.printf("Week " + i + " average: %.2f \n", weekSixAverage);
+                    break;
+            }
         }
-
-        inputFile.close();
-
     }
 }

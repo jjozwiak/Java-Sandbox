@@ -79,6 +79,7 @@ public class Assn1Prog4 {
             menu();
 
             playerValue = keyboard.nextInt();
+
             while(playerValue < 1 || playerValue > 4)
             {
                 System.out.println("Sorry that is an invalid entry. Please choose from one of the following:");
@@ -108,6 +109,10 @@ public class Assn1Prog4 {
 
     }
 
+    /**
+     * Prints the menu options a user can choose from when the program is running
+     * @return void
+     */
     public static void menu()
     {
         System.out.println();
@@ -118,6 +123,14 @@ public class Assn1Prog4 {
         System.out.println();
         System.out.println("Enter your choice:");
     }
+
+    /**
+     * Displays the aggregated results of all the games played.
+     * @param  totalPlayerWins   The total number of games the user beat the computer.
+     * @param  totalComputerWins The total number of games the computer beat the user.
+     * @param  ties              The total number of games that the user and computer selected the same option.
+     * @return                   void
+     */
     public static void printResults(int totalPlayerWins, int totalComputerWins, int ties)
     {
         int totalGamesPlayedWithAWin = totalPlayerWins + totalComputerWins;

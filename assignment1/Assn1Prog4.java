@@ -11,7 +11,7 @@ public class Assn1Prog4 {
         int totalPlayerWins = 0;
         int totalComputerWins = 0;
         int ties = 0;
-        int playerValue = -1;
+        int playerValue = 0;
         int computer = rand.nextInt(3)+1;
         int failedAttempts = 0;
 

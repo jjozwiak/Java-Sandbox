@@ -11,7 +11,7 @@ public class Assn1Prog3 {
         int iterator = 0;
 
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("Please enter a future value");
+        System.out.print("Please enter a future value: ");
 
         currentValue = keyboard.nextDouble();
 
@@ -21,12 +21,12 @@ public class Assn1Prog3 {
             {	
                 case 0:
                     futureValue = currentValue;
-                    System.out.println("Please enter an interest rate");
+                    System.out.print("Please enter an interest rate: ");
                     currentValue = keyboard.nextDouble();
                     break;
                 case 1:
                     interestRate = currentValue;
-                    System.out.println("Please enter number of years");
+                    System.out.print("Please enter number of years: ");
                     currentValue = keyboard.nextDouble();
                     break;
                 case 2:

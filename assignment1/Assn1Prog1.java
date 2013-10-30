@@ -28,13 +28,13 @@ public class Assn1Prog1
 
         Scanner keyboard = new Scanner(System.in);
 
-        System.out.println("How many weeks of rainfall are you going to record? Please enter a number from one to six.");
+        System.out.println("How many weeks of rainfall are you going to record? Please enter a number from 1 to 6.");
 
         totalNumberOfWeeks = keyboard.nextInt();
 
         //Loop validation. Make sure user enters a valid number
         while(totalNumberOfWeeks <= 0 || totalNumberOfWeeks > 6) {
-            System.out.println("You must enter a number from one to six.");
+            System.out.println("You must enter a number from 1 to 6.");
             System.out.println("How many weeks of rainfall are you going to record?");
 
             totalNumberOfWeeks = keyboard.nextInt();

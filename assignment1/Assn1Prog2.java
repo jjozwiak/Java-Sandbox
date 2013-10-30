@@ -9,7 +9,7 @@ public class Assn1Prog2 {
 
         Scanner keyboard = new Scanner(System.in);
 
-        System.out.println("Enter a distance in meters: ");
+        System.out.print("Enter a distance in meters: ");
 
         distance = keyboard.nextDouble();
 
@@ -64,21 +64,21 @@ public class Assn1Prog2 {
     {
         double kilometers;
         kilometers = meters * 0.001;
-        System.out.printf("\n%f meters is %f kilometers\n", meters, kilometers);
+        System.out.printf("\n%.0f meters is %.1f kilometers\n", meters, kilometers);
     }
 
     public static void showInches(double meters)
     {
         double inches;
         inches = meters * 39.37;
-        System.out.printf("\n%f meters is %f inches\n", meters, inches);
+        System.out.printf("\n%.0f meters is %.1f inches\n", meters, inches);
     }
 
     public static void showFeet(double meters)
     {
         double feet;
         feet = meters * 3.281;
-        System.out.printf("\n%f meters is %f feet\n", meters, feet);
+        System.out.printf("\n%.0f meters is %.1f feet\n", meters, feet);
     }
 
     public static void menu()
@@ -89,6 +89,6 @@ public class Assn1Prog2 {
         System.out.println("3. Convert to feet");
         System.out.println("4. Quit the program");
         System.out.println();
-        System.out.println("Enter your choice:");
+        System.out.print("Enter your choice: ");
     }
 }

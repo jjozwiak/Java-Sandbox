@@ -121,7 +121,7 @@ public class Assn1Prog4 {
         System.out.println("3. Scissors");
         System.out.println("4. Quit the game");
         System.out.println();
-        System.out.println("Enter your choice:");
+        System.out.print("Enter your choice: ");
     }
 
     /**
@@ -136,6 +136,7 @@ public class Assn1Prog4 {
         int totalGamesPlayedWithAWin = totalPlayerWins + totalComputerWins;
         double playersWinningPercentage = (double)totalPlayerWins/totalGamesPlayedWithAWin * 100;
 
+        System.out.println("*********************************************************************");
         System.out.println("Total player wins " + totalPlayerWins);
         System.out.println("Total computer wins " + totalComputerWins);
         System.out.println("Total ties " + ties);

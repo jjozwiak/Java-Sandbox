@@ -21,6 +21,16 @@ public class Assn2Prog1
 
         while(terminate == false && stop != -1)
         {
+
+            System.out.print("Please enter show room name: ");
+            keyboard.nextLine();
+
+            System.out.print("Please enter show room city: ");
+            keyboard.nextLine();
+
+            System.out.print("Please enter show room state: ");
+            keyboard.nextLine();
+
             System.out.print("Please enter order for pro line: ");
 
             int currentProMaxOrderValue = keyboard.nextInt();
@@ -77,7 +87,15 @@ public class Assn2Prog1
             {
                 if(escondidoProMax < currentProMaxOrderValue)
                 {
-                    escondidoProMax -= currentProMaxOrderValue;
+                    if(escondidoProMax == 0){
+                        System.out.println("Sorry, the daily limit for Pro has been reached.");
+                    }
+                    else
+                    {
+                        int remainder = currentProMaxOrderValue - escondidoProMax;
+                        escondidoProMax = 0;
+                        System.out.println("Your order exceeds the remaining amount of Pro available. An order has been placed for the remaining amount of: " + remainder);
+                    }
                 }
                 else
                 {
@@ -146,7 +164,16 @@ public class Assn2Prog1
             {
                 if(escondidoDesignerMax < currentDesignerOrderValue)
                 {
-                    escondidoDesignerMax -= currentDesignerOrderValue;
+                    if(escondidoDesignerMax == 0){
+                        System.out.println("Sorry, the daily limit for Designer has been reached.");
+                    }
+                    else
+                    {
+                        int remainder = currentDesignerOrderValue - escondidoDesignerMax;
+                        escondidoDesignerMax = 0;
+                        System.out.println("Your order exceeds the remaining amount of Designer available. An order has been placed for the remaining amount of: " + remainder);
+                    }
+
                 }
                 else
                 {
@@ -155,23 +182,18 @@ public class Assn2Prog1
             }
 
 
-
-
-
-
-
-
-
-            System.out.println("Raleigh: " + raleighProMax);
-            System.out.println("Pella: " + pellaProMax);
-            System.out.println("Escondido: " + escondidoProMax);
-
             if(terminate != true)
             {
                 System.out.print("Enter 0 to continue or -1 if you are finished:");
-                stop = keyboard.nextInt(); 
-            }
+                stop = keyboard.nextInt();
 
+                while(stop != 0 && stop != -1)
+                {
+                    System.out.println("Sorry, that is not a valid entry. Please enter a 0 to continue or -1 if you are finished entering orders.");
+                    stop = keyboard.nextInt();
+                }
+            }
+            keyboard.nextLine();
         }
 
         if(terminate != true)
@@ -180,8 +202,27 @@ public class Assn2Prog1
             int proMaxTotal = 975 - raleighProMax - pellaProMax - escondidoProMax;
             int designerTotal = 525 - raleighDesignerMax - pellaDesignerMax - escondidoDesignerMax;
 
+            int raleighProMaxTotal = 300 - raleighProMax;
+            int pellaProMaxTotal = 475 - pellaProMax;
+            int escondidoProMaxTotal = 200 - escondidoProMax;
+
+            int raleighDesignerTotal = 150 - raleighDesignerMax;
+            int pellaDesignerTotal =  275 - pellaDesignerMax;
+            int escondidoDesignerTotal = 100 - escondidoDesignerMax;
+
+            System.out.println();
             System.out.println("Total number of Pro line ordered: " + proMaxTotal);
             System.out.println("Total number of Designer line ordered: " + designerTotal);
+
+            System.out.println("Raleigh Pro producion totals: " + raleighProMaxTotal);
+            System.out.println("Raleigh Designer production totals: " + raleighDesignerTotal);
+
+            System.out.println("Pella Pro production totals: " + pellaProMaxTotal);
+            System.out.println("Pella Designer production totals: " + pellaDesignerTotal);
+
+            System.out.println("Escondido Pro production totals: " +  escondidoProMaxTotal);
+            System.out.println("Escondido Designer production totals: " + escondidoDesignerTotal);
+
         }
         else
         {

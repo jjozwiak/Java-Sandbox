@@ -177,8 +177,11 @@ public class Assn2Prog1
         if(terminate != true)
         {
             //give totals
-            System.out.println("Total number of Pro line ordered: ");
-            System.out.println("Total number of Designer line ordered: ");
+            int proMaxTotal = 975 - raleighProMax - pellaProMax - escondidoProMax;
+            int designerTotal = 525 - raleighDesignerMax - pellaDesignerMax - escondidoDesignerMax;
+
+            System.out.println("Total number of Pro line ordered: " + proMaxTotal);
+            System.out.println("Total number of Designer line ordered: " + designerTotal);
         }
         else
         {

@@ -23,7 +23,7 @@ public class Assn2Prog3
 
         Scanner keyboard = new Scanner(System.in);
 
-        System.out.print("Please enter the name of a file including the file extension (ex: .txt): ");
+        System.out.print("Please enter the name of a file including the file extension (ex: grades.txt): ");
         String fileName = keyboard.nextLine();
 
         File gradeFile = new File(fileName);
@@ -89,14 +89,7 @@ public class Assn2Prog3
 
         inputFile2.close();
     }
-    /**
-     * [calculateAverage description]
-     * @param  grade1 [description]
-     * @param  grade2 [description]
-     * @param  grade3 [description]
-     * @param  grade4 [description]
-     * @return        [description]
-     */
+
     public static double calculateAverage(double grade1, double grade2, double grade3, double grade4)
     {
         double average;
@@ -107,11 +100,7 @@ public class Assn2Prog3
 
         return average;
     }
-    /**
-     * [calculateGrade description]
-     * @param  average [description]
-     * @return         [description]
-     */
+
     public static char calculateGrade(double average)
     {
         if(average >= 90)

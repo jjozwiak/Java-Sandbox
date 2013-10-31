@@ -61,15 +61,6 @@ public class Assn2Prog2
         }
 
     }
-    /**
-     * [profitOrLoss description]
-     * @param  numberOfShares         [description]
-     * @param  purchasePricePerShare  [description]
-     * @param  purchaseCommissionPaid [description]
-     * @param  salePricePerShare      [description]
-     * @param  saleCommissionPaid     [description]
-     * @return                        [description]
-     */
     public static double profitOrLoss(double numberOfShares, double purchasePricePerShare, double purchaseCommissionPaid, double salePricePerShare, double saleCommissionPaid)
     {
         return ((numberOfShares * salePricePerShare) - saleCommissionPaid) - ((numberOfShares * purchasePricePerShare) + purchaseCommissionPaid);

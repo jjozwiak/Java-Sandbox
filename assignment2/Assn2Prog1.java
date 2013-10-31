@@ -84,6 +84,84 @@ public class Assn2Prog1
                     escondidoProMax -= currentProMaxOrderValue;
                 }
             }
+
+
+
+
+
+            System.out.print("Please enter order for designer line: ");
+
+            int currentDesignerOrderValue = keyboard.nextInt();
+
+            //validate the user input. Users cannot exceed 100 for Pro. They are given 3 opportunities to
+            //enter correct data then the program will terminate.
+            while(currentDesignerOrderValue > 120 && terminate == false)
+            {
+                System.out.print("Sorry the maximum order for Designer is 120. Please enter a new value: ");
+                currentDesignerOrderValue = keyboard.nextInt();
+
+                if(countOfInvalidEntries == 2)
+                {
+                    terminate = true;
+                }
+                else
+                {
+                    ++countOfInvalidEntries;
+                }
+
+            }
+
+            //if we reach this point, the user has entered a valid value within the alotted number of times
+            //so we'll reset the counter to 0 for the next set of entries.
+            countOfInvalidEntries = 0;
+
+
+            if(raleighDesignerMax > 0)
+            {
+                if(raleighDesignerMax < currentDesignerOrderValue)
+                {
+                    int remainder = currentDesignerOrderValue - raleighDesignerMax;
+                    raleighDesignerMax = 0;
+                    pellaDesignerMax -= remainder;
+                }
+                else
+                {
+                    raleighDesignerMax -= currentDesignerOrderValue;
+                }
+            }
+            else if(pellaDesignerMax > 0)
+            {
+                if(pellaDesignerMax < currentDesignerOrderValue)
+                {
+                    int remainder = currentDesignerOrderValue - pellaDesignerMax;
+                    pellaDesignerMax = 0;
+                    escondidoDesignerMax -= remainder;
+                }
+                else
+                {
+                    pellaDesignerMax -= currentDesignerOrderValue;
+                }
+            }
+            else
+            {
+                if(escondidoDesignerMax < currentDesignerOrderValue)
+                {
+                    escondidoDesignerMax -= currentDesignerOrderValue;
+                }
+                else
+                {
+                    escondidoDesignerMax -= currentDesignerOrderValue;
+                }
+            }
+
+
+
+
+
+
+
+
+
             System.out.println("Raleigh: " + raleighProMax);
             System.out.println("Pella: " + pellaProMax);
             System.out.println("Escondido: " + escondidoProMax);
@@ -99,6 +177,8 @@ public class Assn2Prog1
         if(terminate != true)
         {
             //give totals
+            System.out.println("Total number of Pro line ordered: ");
+            System.out.println("Total number of Designer line ordered: ");
         }
         else
         {

@@ -5,25 +5,13 @@ public class Car
 	private String make;
 	private int speed;
 
-	public Car(int year, String makeArg, int speedArg)
+	public Car(int year, String makeArg)
 	{
 		yearModel = year;
 		make = makeArg;
-		speed = speedArg;
+		speed = 0;
 	}
 
-	// public void setYearModel(int year)
-	// {
-	// 	yearModel = year;
-	// }
-	// public void setMake(String makeArg)
-	// {
-	// 	make = makeArg;
-	// }
-	// public void setSpeed(int speedArg)
-	// {
-	// 	speed = speedArg;
-	// }
 	public int getYearModel()
 	{
 		return yearModel;

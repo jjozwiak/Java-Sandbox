@@ -22,6 +22,7 @@ public class Assn2Prog5
     }
     public static double kineticEnergy(double mass, double velocity)
     {
-    	return (mass * (volume * volume))/2;
+        double velocitySquared = velocity * velocity;
+    	return (mass * velocitySquared)/2;
     }
 }

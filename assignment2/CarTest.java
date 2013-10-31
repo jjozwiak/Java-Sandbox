@@ -7,13 +7,7 @@ public class CarTest
 
         String make = "Oldsmobile";
 
-        Car myCar = new Car(2012, make, 75);
-
-        // myCar.setYearModel(2012);
-        // myCar.setMake("Oldsmobile");
-        // myCar.setSpeed(75);
-
-        // myCar(2012, "Oldsmobile", 75);
+        Car myCar = new Car(1993, make);
 
         System.out.println("Year Model is: " + myCar.getYearModel());
         System.out.println("Make is: " + myCar.getMake());

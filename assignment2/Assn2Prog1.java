@@ -103,10 +103,6 @@ public class Assn2Prog1
                 }
             }
 
-
-
-
-
             System.out.print("Please enter order for designer line: ");
 
             int currentDesignerOrderValue = keyboard.nextInt();

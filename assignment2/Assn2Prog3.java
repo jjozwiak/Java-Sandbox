@@ -82,10 +82,10 @@ public class Assn2Prog3
 
         numberOfStudents = numberOfLines/5;
 
-        System.out.println("Grade 1 Class Average: " + grade1ClassTotals/numberOfStudents);
-        System.out.println("Grade 2 Class Average: " + grade2ClassTotals/numberOfStudents);
-        System.out.println("Grade 3 Class Average: " + grade3ClassTotals/numberOfStudents);
-        System.out.println("Grade 4 Class Average: " + grade4ClassTotals/numberOfStudents);
+        System.out.printf("Grade 1 Class Average: %.2f\n", grade1ClassTotals/numberOfStudents);
+        System.out.printf("Grade 2 Class Average: %.2f\n", grade2ClassTotals/numberOfStudents);
+        System.out.printf("Grade 3 Class Average: %.2f\n", grade3ClassTotals/numberOfStudents);
+        System.out.printf("Grade 4 Class Average: %.2f\n", grade4ClassTotals/numberOfStudents);
 
         inputFile2.close();
     }

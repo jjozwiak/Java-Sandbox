@@ -13,6 +13,31 @@ public class DLExamTest
 
     	DLExam exam = new DLExam();
 
+    	//System.out.println(exam.getNumberOfAnswersFromFile());
+
+
+    	if(exam.getNumberOfAnswersFromFile() > 0)
+    	{
+    		System.out.print("Would you like to use your answers from the previous round? 'yes' or 'no':");
+
+    		String loadAnswers = keyboard.nextLine();
+
+    		if(loadAnswers.equals("yes"))
+    		{
+    			currentQuestion = exam.getNumberOfAnswersFromFile();
+    			exam.getUserAnswersFromFile();
+    		}
+    		else
+    		{
+    			exam.clearAnswersFile();
+    		}
+
+    	}
+
+    	// for(int i = 0; i < exam.userAnswers.length; i++)
+    	// {
+    	// 	System.out.println(exam.userAnswers[i]);
+    	// }
     	//if answers file exist
     	//ask if user would like to load prior answers
     	//user answers yes - loop through file and assign answers to user answers array and set the current question
@@ -21,7 +46,8 @@ public class DLExamTest
     	//ask user to enter answer for each question
     	while(currentQuestion < exam.userAnswers.length)
     	{
-    		System.out.print("Enter your answer for question " + currentQuestion + ": ");
+    		int currentPrintedQuestion = currentQuestion + 1;
+    		System.out.print("Enter your answer for question " + currentPrintedQuestion + ": ");
 
     		String currentAnswer = keyboard.nextLine();
 
@@ -46,6 +72,8 @@ public class DLExamTest
     				else
     				{
     					System.out.println("Answers discarded.");
+
+    					exam.clearAnswersFile();
     				}
 
     				System.exit(0);
@@ -67,19 +95,34 @@ public class DLExamTest
     	}
 
 
+    	if(exam.passed())
+    	{
+    		System.out.println("Congratulations! You passed the exam. Below are your results.");
+    	}
+    	else
+    	{
+    		System.out.println("Sorry:( You did not pass the exam. Below are your results.");
+    	}
+    	
+
     	System.out.println("Total Correct Answers: " + exam.totalCorrect());
     	System.out.println("Total Incorrect Answers: " + exam.totalIncorrect());
-    	System.out.println(exam.passed());
-
-    	exam.writeUserAnswersToFile();
 
     	ArrayList missedArray = exam.questionsMissed();
 
-    	for(int i = 0; i < missedArray.size(); i++)
-    	{
-    		System.out.println(missedArray.get(i));
+    	if(missedArray.size() > 0){
+
+	    	System.out.println("Below are the questions you did not get correct.");
+
+	    	for(int i = 0; i < missedArray.size(); i++)
+	    	{
+	    		System.out.println(missedArray.get(i));
+	    	}
+
     	}
 
+    	//if we get her let's clear the answers file for the next user
+    	exam.clearAnswersFile();
 
     }
 }

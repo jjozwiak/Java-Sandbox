@@ -1,3 +1,4 @@
+import java.util.Scanner;
 import java.util.ArrayList;
 import java.io.*;
 
@@ -23,15 +24,48 @@ public class DLExam
 		outputFile.close();
 	}
 
-	public void getUserAnswersFromFile()
+	public void clearAnswersFile() throws IOException
 	{
+		PrintWriter outputFile = new  PrintWriter("answers.txt");
+		outputFile.close();
+	}
 
+	public int getNumberOfAnswersFromFile() throws IOException
+	{
+		File answersFile = new File("answers.txt");
+		Scanner inputFile = new Scanner(answersFile);
+		int numberOfEntries = 0;
+		while(inputFile.hasNext())
+		{
+			inputFile.nextLine();
+			numberOfEntries++;
+		}
+
+		inputFile.close();
+
+		return numberOfEntries;
+	}
+
+	public int getUserAnswersFromFile() throws IOException
+	{
+		File answersFile = new File("answers.txt");
+		Scanner inputFile = new Scanner(answersFile);
+		int numberOfEntries = 0;
+		while(inputFile.hasNext())
+		{
+			userAnswers[numberOfEntries] = inputFile.nextLine();
+			numberOfEntries++;
+		}
+
+		inputFile.close();
+
+		return numberOfEntries;
 	}
 
 	public boolean passed()
 	{
 		int totalCorrect = totalCorrect();
-		if(totalCorrect > 10)
+		if(totalCorrect >= 15)
 		{
 			return true;
 		}
@@ -90,9 +124,5 @@ public class DLExam
 		}
 		return missed;
 	}
-
-
-
-
 
 }

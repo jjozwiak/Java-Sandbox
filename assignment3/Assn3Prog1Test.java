@@ -6,10 +6,12 @@ public class Assn3Prog1Test
     public static void main(String[] args)
     {
     	int totalNumberOfWeeks = 0;
+        int totalZeroRainDays = 0;
+        int totalRainDays = 0;
 
         Scanner keyboard = new Scanner(System.in);
 
-        System.out.println("How many weeks of rainfall are you going to record?");
+        System.out.print("How many weeks of rainfall are you going to record? ");
 
         totalNumberOfWeeks = keyboard.nextInt();
 
@@ -35,9 +37,19 @@ public class Assn3Prog1Test
             {
 
                 double inchesOfRain = 0;
-
-                System.out.println("How many inches of rain were recorded on Day" + j +" of Week" + i + "?");
+                int day = j + 1;
+                int week = i + 1;
+                System.out.print("How many inches of rain were recorded on Day" + day +" of Week" + week + "? ");
                 inchesOfRain = keyboard.nextDouble();
+
+                if(inchesOfRain == 0)
+                {
+                    totalZeroRainDays++;
+                }
+                else
+                {
+                    totalRainDays++;
+                }
 
                 dailyValues[j] = inchesOfRain;
             }
@@ -50,13 +62,13 @@ public class Assn3Prog1Test
 
         }
 
-        double day1Totals;
-        double day2Totals;
-        double day3Totals;
-        double day4Totals;
-        double day5Totals;
-        double day6Totals;
-        double day7Totals;
+        double day1Totals = 0;
+        double day2Totals = 0;
+        double day3Totals = 0;
+        double day4Totals = 0;
+        double day5Totals = 0;
+        double day6Totals = 0;
+        double day7Totals = 0;
 
         for(int i = 0; i < totalNumberOfWeeks; i++)
         {
@@ -79,42 +91,25 @@ public class Assn3Prog1Test
         double day6Average = day6Totals/totalNumberOfWeeks;
         double day7Average = day7Totals/totalNumberOfWeeks;
 
-        // System.out.println("Total number of weeks: " + totalNumberOfWeeks);
-        // System.out.println("Total days with greater than 0 inches of rainfall: " + totalDaysGreaterThanZero);
-        // System.out.println("Total days with 0 inches of rainfall: " + totalDaysWithZero);
-        // System.out.println("Total inches of rain: " + totalInchesOfRain );
+        System.out.println("Total number of weeks: " + totalNumberOfWeeks);
+        System.out.println("Total days with greater than 0 inches of rainfall: " + totalRainDays);
+        System.out.println("Total days with 0 inches of rainfall: " + totalZeroRainDays);
+        System.out.printf("Total inches of rain: %.2f \n", totalInchesOfRain);
+        System.out.printf("Day 1 Average: %.2f \n", day1Average);
+        System.out.printf("Day 2 Average: %.2f \n", day2Average);
+        System.out.printf("Day 3 Average: %.2f \n", day3Average);
+        System.out.printf("Day 4 Average: %.2f \n", day4Average);
+        System.out.printf("Day 5 Average: %.2f \n", day5Average);
+        System.out.printf("Day 6 Average: %.2f \n", day6Average);
+        System.out.printf("Day 7 Average: %.2f \n", day7Average);
 
-        // System.out.printf("Day1 Average: %.2f \n", day1Average);
-        // System.out.printf("Day2 Average: %.2f \n", day2Average);
-        // System.out.printf("Day3 Average: %.2f \n", day3Average);
-        // System.out.printf("Day4 Average: %.2f \n", day4Average);
-        // System.out.printf("Day5 Average: %.2f \n", day5Average);
-        // System.out.printf("Day6 Average: %.2f \n", day6Average);
-        // System.out.printf("Day7 Average: %.2f \n", day7Average);
+        for(int i = 0; i < weeks.length ; i++)
+        {
+            int displayNum = i + 1;
+            System.out.printf("Week " + displayNum + " average: %.2f \n", weeks[i].getWeekAverage());
+        }
 
-        // for(int i = 1; i <= totalNumberOfWeeks; i++)
-        // {
-        //     switch(i)
-        //     {
-        //         case 1:
-        //             System.out.printf("Week " + i + " average: %.2f \n", weekOneAverage);
-        //             break;
-        //         case 2:
-        //             System.out.printf("Week " + i + " average: %.2f \n", weekTwoAverage);
-        //             break;
-        //         case 3:
-        //             System.out.printf("Week " + i + " average: %.2f \n", weekThreeAverage);
-        //             break;
-        //         case 4:
-        //             System.out.printf("Week " + i + " average: %.2f \n", weekFourAverage);
-        //             break;
-        //         case 5:
-        //             System.out.printf("Week " + i + " average: %.2f \n", weekFiveAverage);
-        //             break;
-        //         case 6:
-        //             System.out.printf("Week " + i + " average: %.2f \n", weekSixAverage);
-        //             break;
-        //     }
-        // }
+
+
     }
 }

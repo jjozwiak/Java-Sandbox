@@ -12,6 +12,22 @@ class PhoneBookEntry
 		name = nameArg;
 		phonenumber = phoneNumberArg;
 	}
+	public setName(String nameArg)
+	{
+		name = nameArg;
+	}
+	public setPhoneNumber(int phoneNumberArg)
+	{
+		phonenumber = phoneNumberArg;
+	}
+	public String getName()
+	{
+		return name;
+	}
+	public int getPhoneNumber()
+	{
+		return phonenumber;
+	}
 }
 
 public class PhoneBook

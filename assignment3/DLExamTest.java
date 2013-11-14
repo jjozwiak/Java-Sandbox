@@ -34,14 +34,6 @@ public class DLExamTest
 
     	}
 
-    	// for(int i = 0; i < exam.userAnswers.length; i++)
-    	// {
-    	// 	System.out.println(exam.userAnswers[i]);
-    	// }
-    	//if answers file exist
-    	//ask if user would like to load prior answers
-    	//user answers yes - loop through file and assign answers to user answers array and set the current question
-    	//user answers no - empty the file and have user start from scratch
 
     	//ask user to enter answer for each question
     	while(currentQuestion < exam.userAnswers.length)

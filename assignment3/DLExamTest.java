@@ -13,7 +13,12 @@ public class DLExamTest
 
     	DLExam exam = new DLExam();
 
-    	//System.out.println(exam.getNumberOfAnswersFromFile());
+    	//check if file exists if not create it.
+        File file = new File("answers.txt");
+        if(!file.exists())
+        {
+            PrintWriter outputFile = new PrintWriter("answers.txt");
+        }
 
 
     	if(exam.getNumberOfAnswersFromFile() > 0)

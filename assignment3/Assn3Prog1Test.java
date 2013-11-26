@@ -26,7 +26,6 @@ public class Assn3Prog1Test
         //create an array that will hold all of our week objects
         Assn3Prog1[] weeks = new Assn3Prog1[totalNumberOfWeeks];
 
-        //TODO change totalNumOfWeeks to length attr.
         for(int i = 0; i < totalNumberOfWeeks; i++)
         {
 

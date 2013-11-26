@@ -46,6 +46,11 @@ public class PhoneBook
 
 
         //check if file exists if not create it.
+        File file = new File("phonebook.txt");
+        if(!file.exists())
+        {
+            PrintWriter outputFile = new PrintWriter("phonebook.txt");
+        }
 
         if(getNumberOfEntriesFromFile() > 0)
         {

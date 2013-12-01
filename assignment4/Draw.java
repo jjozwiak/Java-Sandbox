@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Draw
 {
 
@@ -9,6 +11,7 @@ public class Draw
 	private boolean leftLeg;
 	private boolean rightLeg;
 	private String outputString;
+	private int bodyPartsAdded;
 
 	public Draw()
 	{
@@ -19,8 +22,39 @@ public class Draw
 		pelvis = false;
 		leftLeg = false;
 		rightLeg = false;
+		bodyPartsAdded = 0;
 	}
-
+	public void addBodyPart()
+	{
+		switch(bodyPartsAdded)
+		{
+			case 0:
+				addHead();
+				break;
+			case 1:
+				addBody();
+				break;
+			case 2:
+				addLeftArm();
+				break;
+			case 3:
+				addRightArm();
+				break;
+			case 4:
+				addPelvis();
+				break;
+			case 5:
+				addLeftLeg();
+				break;
+			case 6:
+				addRightLeg();
+		}
+		bodyPartsAdded++;
+	}
+	public int getBodyPartsAdded()
+	{
+		return bodyPartsAdded;
+	}
 	public void addHead()
 	{
 		head = true;
@@ -67,7 +101,25 @@ public class Draw
 			rightLeg = true;
 		}
 	}
+	public void drawPlaceholder(ArrayList<Character> lettersGuessed)
+	{
+		System.out.print("Correctly guessed letters:  ");
+		//print out the letters that were guessed correctly
+		for(int i = 0; i < lettersGuessed.size(); i++)
+		{
+			System.out.print(" " + lettersGuessed.get(i) + "   ");
+		}
+		System.out.println();
 
+
+		System.out.print("                            ");
+		//print out the placeholder lines
+		for(int j = 0; j < lettersGuessed.size(); j++)
+		{
+			System.out.print("---  ");
+		}
+		System.out.println();
+	}
 	public void drawHangMan()
 	{
 		// System.out.println("--------------                  ");

@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class PlayerDemo
 {
-     public static void main(String[] args)
+    public static void main(String[] args)
     {
 
         //start a new game instance (game instance creates a new draw instance)
@@ -21,7 +21,13 @@ public class PlayerDemo
 
             String letter = keyboard.nextLine();
 
-            if(letter.equals("A"))
+            //convert to char
+            char charLetter = letter.charAt(0);
+            //String word = "string";
+
+           //game.isLetterInWord(game.getCurrentWord(), charLetter);
+
+            if(!game.isLetterInWord(game.getCurrentWord(), charLetter, game.correctlyGuessedLetters))
             {
                 game.hangMan.addBodyPart();
 
@@ -32,31 +38,7 @@ public class PlayerDemo
                 }
             }
 
-            // if(game.isValid(letter) && !game.hasBeenUsed(letter))
-            // {
-                //letter is valid and has not been used
-                //loop through each letter of currentword
 
-                //boolean found = false;
-
-                //foreach
-                    //if equals
-                        //found = true;
-                        //game.correctlyGuessedLetters.set(i) = letter;
-
-                //if !found
-                    //game.incorrectlyGuessedLetters.add(letter);
-                    //add a body game.hangeMan.addBodyPart();
-
-                //loop through correctlyGuessedLetters arraylist
-                    //if there are no blank entries
-                        //set game.active = false
-                        //set game.gameWon = true
-            // }
-            // else
-            // {
-            //     //please choose a valid entry. 
-            // }
         }
 
         

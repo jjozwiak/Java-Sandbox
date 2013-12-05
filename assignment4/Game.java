@@ -1,9 +1,10 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Game
 {
-	private String[] words = {"Word1ss", "Word2fdddd", "Word3fd"};
-	private String[] definitions = {"Definition 1", "Def 2", "this word is ..."};
+	private String[] words = {"Puppy", "Crabby", "SomeWord", "anotherword"};
+	private String[] definitions = {"Definition 1", "Def 2", "this word is ...", "sffsdfs"};
 	private boolean active;
 	private boolean gameWon;
 	private int wordIndex;
@@ -19,8 +20,8 @@ public class Game
 	{
 		active = true;
 
-		//TODO: set word index randomly with upper limit of size of words array
-		wordIndex = 2;
+		Random random = new Random();
+		wordIndex = random.nextInt(7);
 
 		currentWord = chooseWordFromList(wordIndex);
 		currentDefinition = chooseDefinitionFromList(wordIndex);
@@ -81,13 +82,32 @@ public class Game
 		//is this a letter
 		return false;
 	}
-	public boolean isInWord()
+	public boolean isLetterInWord(String word, char letter, ArrayList<Character> lettersGuessed)
 	{
-		return false;
+		boolean isLetterInWord = false;
+    	String normalizedWord = word.toLowerCase();
+    	char normalizedLetter = Character.toLowerCase(letter);
+
+    	for(int i = 0; i < normalizedWord.length(); i++)
+    	{
+    		char comparisonCharacter = normalizedWord.charAt(i);
+
+    		if(comparisonCharacter == normalizedLetter)
+    		{
+    			isLetterInWord = true;
+
+    			//add letter to correctly guessed array list
+    			//System.out.println(i);
+    			lettersGuessed.add(i, normalizedLetter);
+    		}
+    	}
+    	return isLetterInWord;
 	}
-	public boolean hasBeenUsed()
+	public boolean hasBeenUsed(ArrayList incorrectlyGuessedLetters, char currentLetter)
 	{
-		return false;
+		boolean hasBeenUsed = false;
+
+		return hasBeenUsed;
 	}
 
 	//TODO create toString class for debugging

@@ -101,8 +101,10 @@ public class Draw
 			rightLeg = true;
 		}
 	}
-	public void drawPlaceholder(ArrayList<Character> lettersGuessed)
+	public void drawPlaceholder(ArrayList<Character> lettersGuessed, ArrayList<Character> incorrectGuessed)
 	{
+		
+
 		System.out.print("Correctly guessed letters:  ");
 		//print out the letters that were guessed correctly
 		for(int i = 0; i < lettersGuessed.size(); i++)
@@ -118,6 +120,24 @@ public class Draw
 		{
 			System.out.print("---  ");
 		}
+		System.out.println();
+
+
+		if(incorrectGuessed.size() > 0) {
+			System.out.print("Incorrectly guessed letters: ");
+		}
+
+		//print out the placeholder lines
+		for(int k = 0; k < incorrectGuessed.size(); k++)
+		{
+			if(k == 0)
+			{
+				System.out.print(incorrectGuessed.get(k));
+			}else{
+				System.out.print(", " + incorrectGuessed.get(k));
+			}
+		}
+
 		System.out.println();
 	}
 	public void drawHangMan()

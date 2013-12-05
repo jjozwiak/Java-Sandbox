@@ -16,6 +16,7 @@ public class PlayerDemo
         while(game.getActive())
         {
             game.displayGameBoard();
+            System.out.print("Current word: " + game.getCurrentWord() + "\n");
 
             System.out.print("Guess a letter: ");
 
@@ -23,11 +24,9 @@ public class PlayerDemo
 
             //convert to char
             char charLetter = letter.charAt(0);
-            //String word = "string";
 
-           //game.isLetterInWord(game.getCurrentWord(), charLetter);
 
-            if(!game.isLetterInWord(game.getCurrentWord(), charLetter, game.correctlyGuessedLetters))
+            if(!game.isLetterInWord(game.getCurrentWord(), charLetter, game.correctlyGuessedLetters, game.incorrectlyGuessedLetters))
             {
                 game.hangMan.addBodyPart();
 
@@ -38,10 +37,22 @@ public class PlayerDemo
                 }
             }
 
+            if(game.hasBeenUsed(game.incorrectlyGuessedLetters, game.correctlyGuessedLetters, charLetter))
+            {
+                game.hangMan.addBodyPart();
+                System.out.println("damn!");
+                //set game active to false if we reached 7 body parts
+                if(game.hangMan.getBodyPartsAdded() == 7)
+                {
+                    game.setActive(false);
+                }
+            }
+
+           // System.out.println(game.hasBeenUsed(game.incorrectlyGuessedLetters, game.correctlyGuessedLetters, charLetter));
 
         }
 
-        
+
         game.displayGameBoard();
         System.out.println("You Lose!");
         //At this point the current game is over the player either won or loss

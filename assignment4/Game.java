@@ -21,7 +21,7 @@ public class Game
 		active = true;
 
 		Random random = new Random();
-		wordIndex = random.nextInt(7);
+		wordIndex = random.nextInt(3);
 
 		currentWord = chooseWordFromList(wordIndex);
 		currentDefinition = chooseDefinitionFromList(wordIndex);
@@ -74,15 +74,17 @@ public class Game
 	public void displayGameBoard()
 	{
 		hangMan.drawHangMan();
-		hangMan.drawPlaceholder(correctlyGuessedLetters);
+		hangMan.drawPlaceholder(correctlyGuessedLetters, incorrectlyGuessedLetters);
+		System.out.println();
 		System.out.println("Definition: " + currentDefinition);
+		System.out.println();
 	}
 	public boolean isValid()
 	{
 		//is this a letter
 		return false;
 	}
-	public boolean isLetterInWord(String word, char letter, ArrayList<Character> lettersGuessed)
+	public boolean isLetterInWord(String word, char letter, ArrayList<Character> lettersGuessed, ArrayList<Character> incorrectGuessed)
 	{
 		boolean isLetterInWord = false;
     	String normalizedWord = word.toLowerCase();
@@ -96,19 +98,39 @@ public class Game
     		{
     			isLetterInWord = true;
 
-    			//add letter to correctly guessed array list
-    			//System.out.println(i);
-    			lettersGuessed.add(i, normalizedLetter);
+    			lettersGuessed.set(i, normalizedLetter);
     		}
     	}
+
+    	if(isLetterInWord == false)
+    	{
+    		incorrectGuessed.add(normalizedLetter);
+    	}
+
     	return isLetterInWord;
 	}
-	public boolean hasBeenUsed(ArrayList incorrectlyGuessedLetters, char currentLetter)
+	public boolean hasBeenUsed(ArrayList<Character> incorrectlyGuessedLetters, ArrayList<Character> correctlyGuessedLetters, char currentLetter)
 	{
 		boolean hasBeenUsed = false;
+
+		for(int i = 0; i < incorrectlyGuessedLetters.size(); i++)
+		{
+			if(incorrectlyGuessedLetters.get(i) == currentLetter)
+			{
+				hasBeenUsed = true;
+			}
+
+		}
+
+		// for(int j = 0; j < correctlyGuessedLetters.size(); j++)
+		// {
+		// 	if(correctlyGuessedLetters.get(j) == currentLetter)
+		// 	{
+		// 		hasBeenUsed = true;
+		// 	}
+		// }
 
 		return hasBeenUsed;
 	}
 
-	//TODO create toString class for debugging
 }

@@ -14,11 +14,14 @@ public class Game
 
 	public ArrayList<Character> correctlyGuessedLetters;
 	public Draw hangMan;
+	public PlayerScore playerScore;
 	public ArrayList<Character> incorrectlyGuessedLetters;
+	public int invalidEntries;
 
 	public Game()
 	{
 		active = true;
+		invalidEntries = 0;
 
 		Random random = new Random();
 		wordIndex = random.nextInt(3);
@@ -79,10 +82,12 @@ public class Game
 		System.out.println("Definition: " + currentDefinition);
 		System.out.println();
 	}
-	public boolean isValid()
+	public boolean isValid(char letter)
 	{
-		//is this a letter
-		return false;
+		if(!Character.isLetter(letter)){
+			return false;
+		}
+		return true;
 	}
 	public boolean isLetterInWord(String word, char letter, ArrayList<Character> lettersGuessed, ArrayList<Character> incorrectGuessed)
 	{
@@ -111,6 +116,8 @@ public class Game
 	}
 	public boolean hasBeenUsed(ArrayList<Character> incorrectlyGuessedLetters, ArrayList<Character> correctlyGuessedLetters, char currentLetter)
 	{
+		
+
 		boolean hasBeenUsed = false;
 
 		for(int i = 0; i < incorrectlyGuessedLetters.size(); i++)
@@ -122,13 +129,14 @@ public class Game
 
 		}
 
-		// for(int j = 0; j < correctlyGuessedLetters.size(); j++)
-		// {
-		// 	if(correctlyGuessedLetters.get(j) == currentLetter)
-		// 	{
-		// 		hasBeenUsed = true;
-		// 	}
-		// }
+		for(int j = 0; j < correctlyGuessedLetters.size(); j++)
+		{
+			if(correctlyGuessedLetters.get(j) == currentLetter)
+			{
+				hasBeenUsed = true;
+				System.out.println("true");
+			}
+		}
 
 		return hasBeenUsed;
 	}

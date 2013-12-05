@@ -142,20 +142,6 @@ public class Draw
 	}
 	public void drawHangMan()
 	{
-		// System.out.println("--------------                  ");
-		// System.out.println("|            |                  ");
-		// System.out.println("|           ---                 ");
-		// System.out.println("|          |   |                ");
-		// System.out.println("|           ---                 ");
-		// System.out.println("|       -----|-----             ");
-		// System.out.println("|            |                  ");
-		// System.out.println("|            |                  ");
-		// System.out.println("|          -----                ");
-		// System.out.println("|          |   |                ");
-		// System.out.println("|          |   |                ");
-		// System.out.println("|          |   |                ");
-		// System.out.println("|                               ");
-		// System.out.println("--------------------------------");
 
 
 		//Draw top of scaffold

@@ -9,8 +9,6 @@ public class PlayerDemo
         //start a new game instance (game instance creates a new draw instance)
         Game game = new Game();
 
-        //TODO: start a new player score instance
-
         Scanner keyboard = new Scanner(System.in);
 
         while(game.getActive())
@@ -25,17 +23,27 @@ public class PlayerDemo
             //convert to char
             char charLetter = letter.charAt(0);
 
+            boolean valid = game.isValid(charLetter);
+            
+            while(!valid){
 
-            if(!game.isLetterInWord(game.getCurrentWord(), charLetter, game.correctlyGuessedLetters, game.incorrectlyGuessedLetters))
-            {
-                game.hangMan.addBodyPart();
+                game.invalidEntries++;
 
-                //set game active to false if we reached 7 body parts
-                if(game.hangMan.getBodyPartsAdded() == 7)
+                System.out.print("Sorry your entry was not a letter. Please enter a letter: ");
+
+                letter = keyboard.nextLine();
+
+                charLetter = letter.charAt(0);
+
+                valid = game.isValid(charLetter);
+
+                if(game.invalidEntries == 2)
                 {
-                    game.setActive(false);
+                    System.out.println("You have entered an invalid entry more than 3 times. The program is ending.");
+                    System.exit(0);
                 }
             }
+
 
             if(game.hasBeenUsed(game.incorrectlyGuessedLetters, game.correctlyGuessedLetters, charLetter))
             {
@@ -47,8 +55,19 @@ public class PlayerDemo
                     game.setActive(false);
                 }
             }
+            else {
 
-           // System.out.println(game.hasBeenUsed(game.incorrectlyGuessedLetters, game.correctlyGuessedLetters, charLetter));
+                if(!game.isLetterInWord(game.getCurrentWord(), charLetter, game.correctlyGuessedLetters, game.incorrectlyGuessedLetters))
+                {
+                    game.hangMan.addBodyPart();
+
+                    //set game active to false if we reached 7 body parts
+                    if(game.hangMan.getBodyPartsAdded() == 7)
+                    {
+                        game.setActive(false);
+                    }
+                }
+            }
 
         }
 

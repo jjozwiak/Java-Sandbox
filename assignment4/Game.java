@@ -3,12 +3,13 @@ import java.util.Random;
 
 public class Game
 {
-	private String[] words = {"Puppy", "Crabby", "SomeWord", "anotherword"};
-	private String[] definitions = {"Definition 1", "Def 2", "this word is ...", "sffsdfs"};
+	private String[] words = {"Vegan", "Computer", "Painting", "Chalkboard", "Television", "A city in the midwest"};
+	private String[] definitions = {"A type of dietary restriction", "Programmers use these", "An artist makes this", "Teachers use these", "People watch this", "Chicago"};
 	private boolean active;
 	private boolean gameWon;
 	private int wordIndex;
 	private int wordLength;
+	private int remainingLetters;
 	private String currentWord;
 	private String currentDefinition;
 
@@ -24,12 +25,13 @@ public class Game
 		invalidEntries = 0;
 
 		Random random = new Random();
-		wordIndex = random.nextInt(3);
+		wordIndex = random.nextInt(5);
 
 		currentWord = chooseWordFromList(wordIndex);
 		currentDefinition = chooseDefinitionFromList(wordIndex);
 
 		wordLength = currentWord.length();
+		remainingLetters = wordLength;
 
 		correctlyGuessedLetters = new ArrayList<Character>();
 		incorrectlyGuessedLetters = new ArrayList<Character>();
@@ -65,6 +67,14 @@ public class Game
 	public int getWordLength()
 	{
 		return wordLength;
+	}
+	public int getRemainingLetters()
+	{
+		return remainingLetters;
+	}
+	public void setRemainingLetters(int remainingLetters)
+	{
+		this.remainingLetters = remainingLetters;
 	}
 	public boolean getActive()
 	{
@@ -104,6 +114,11 @@ public class Game
     			isLetterInWord = true;
 
     			lettersGuessed.set(i, normalizedLetter);
+
+    			//subtract 1 from the remaining letters
+    			int num = getRemainingLetters();
+    			num--;
+    			setRemainingLetters(num);
     		}
     	}
 
@@ -134,7 +149,7 @@ public class Game
 			if(correctlyGuessedLetters.get(j) == currentLetter)
 			{
 				hasBeenUsed = true;
-				System.out.println("true");
+				
 			}
 		}
 

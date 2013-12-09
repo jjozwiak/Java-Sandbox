@@ -20,13 +20,23 @@ public class FinalDemo {
         //Create the results object this is where we will hold which files we found
         Results results = new Results();
 
-
         //Get the urls to search
         while(anotherUrl == true)
         {
-            System.out.print("Please enter a url to search:");
+            System.out.print("Please enter a url to search. Be sure to enter the full url with protocol. (Example http://example.com):");
 
             String currentUrl = keyboard.nextLine();
+
+            Validation validate = new Validation();
+            //validate url
+            boolean valid = validate.isValidUrl(currentUrl);
+
+            while(!valid)
+            {
+                System.out.print("Sorry please enter a valid url: ");
+                currentUrl = keyboard.nextLine();
+                valid = validate.isValidUrl(currentUrl);
+            }
 
             urlsToScrape.add(currentUrl);
 

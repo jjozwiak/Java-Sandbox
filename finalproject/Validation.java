@@ -23,6 +23,13 @@ public class Validation {
 
 	public boolean isYesOrNo(char value)
 	{
-		return false;
+        if(value != 'Y' && value != 'N')
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
 	}
 }

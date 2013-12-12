@@ -1,3 +1,13 @@
+/*
+ * Variables
+ * Conditionals
+ * User-defined methods
+ * Method argument passing
+ * Value-returning methods
+ * Constructor(s)
+ * Overloading methods 
+ */
+
 import java.util.ArrayList;
 
 public class Results {
@@ -33,16 +43,6 @@ public class Results {
 	public void incrementNumFilesNotFound()
 	{
 		numberOfFilesNotFound++;
-	}
-
-	public void printFilesFound()
-	{
-
-	}
-
-	public void printFilesNotFound()
-	{
-
 	}
 
 	public void addToImageFilesFound(String fileFound) {
@@ -84,27 +84,45 @@ public class Results {
                 incrementNumFilesNotFound();
             }
         }
-
 	}
 
 
 	//overloaded method
-	public void printResults() {
+	public void printResults(ArrayList<String> imagesFound, ArrayList<String> imagesNotFound) {
 		System.out.println(getNumOfFilesFound() + " Files Found:");
-        for(int i = 0; i < imageFilesFound.size(); i++)
+        for(int i = 0; i < imagesFound.size(); i++)
         {
-            System.out.println(imageFilesFound.get(i));
+            System.out.println("	" + imagesFound.get(i));
         }
 
         System.out.println(getNumOfFilesNotFound() + " Files Not Found:");
-        for(int i = 0; i < imageFilesNotFound.size(); i++)
+        for(int i = 0; i < imagesNotFound.size(); i++)
         {
-            System.out.println(imageFilesNotFound.get(i));
+            System.out.println("	" + imagesNotFound.get(i));
         }
 	}
 
-	public void printResults(int num) {
+	public void printResults(ArrayList<String> images, int num) {
 
+		if(num == 1)
+		{
+
+			System.out.println(getNumOfFilesNotFound() + " Files Not Found:");
+	        for(int i = 0; i < images.size(); i++)
+	        {
+	            System.out.println("	" + images.get(i));
+	        }
+
+		}
+		else
+		{
+			System.out.println(getNumOfFilesFound() + " Files Found:");
+	        for(int i = 0; i < images.size(); i++)
+	        {
+	            System.out.println("	" + images.get(i));
+	        }
+		}
+	
 	}
 
 }

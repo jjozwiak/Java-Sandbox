@@ -1,6 +1,12 @@
+/*
+ * Variables
+ * Conditionals
+ * Iterations
+ * ArrayList
+ */
+
 import java.util.ArrayList;
 import java.util.Scanner;
-// import java.util.StringTokenizer;
 import java.io.IOException;
 
 /**
@@ -41,9 +47,19 @@ public class FinalDemo {
             urlsToScrape.add(currentUrl);
 
             //Does user want to add another url?
-            System.out.println("Would you like to enter another url? Type Y or N");
+            System.out.print("Would you like to enter another url? Type Y or N: ");
 
             String addAnotherUrl = keyboard.nextLine();
+            char c = addAnotherUrl.charAt(0);
+
+            valid = validate.isYesOrNo(c);
+
+            while(!valid){
+                System.out.print("Sorry that was not valid. Please enter a Y or N: ");
+                addAnotherUrl = keyboard.nextLine();
+                c = addAnotherUrl.charAt(0);
+                valid = validate.isYesOrNo(c);
+            }
 
             if(addAnotherUrl.equals("N"))
             {
@@ -54,15 +70,27 @@ public class FinalDemo {
         //Get the image files to search for in each url
         while(anotherImageFile == true)
         {
-            System.out.print("Please enter a filename you'd like to search for:");
+            System.out.print("Please enter a filename you'd like to search for: ");
 
             String currentImage = keyboard.nextLine();
 
             imageFilesToSearchFor.add(currentImage);
 
-            System.out.println("Would you like to enter another file name? Type Y or N");
+            System.out.print("Would you like to enter another file name? Type Y or N: ");
 
             String addAnotherFile = keyboard.nextLine();
+            Validation validation = new Validation();
+
+            char e = addAnotherFile.charAt(0);
+
+            boolean valid = validation.isYesOrNo(e);
+
+            while(!valid){
+                System.out.print("Sorry that was not valid. Please enter a Y or N: ");
+                addAnotherFile = keyboard.nextLine();
+                e = addAnotherFile.charAt(0);
+                valid = validation.isYesOrNo(e);
+            }
 
             if(addAnotherFile.equals("N"))
             {
@@ -82,8 +110,25 @@ public class FinalDemo {
 
         results.compare(imageFilesToSearchFor, imageFilesFromUrl);
 
-        results.printResults();
+        System.out.println("Enter 1 for full results (missing AND found files)");
+        System.out.println("Enter 2 for ONLY missing files");
+        System.out.print("Enter 3 for ONLY found files ");
 
+        int option = keyboard.nextInt();
+
+        System.out.println();
+
+        switch(option){
+            case 1:
+                results.printResults(results.imageFilesFound, results.imageFilesNotFound);
+                break;
+            case 2:
+                results.printResults(results.imageFilesFound, 1);
+                break;
+            case 3:
+                results.printResults(results.imageFilesFound, 2);
+                break;
+        }
 
     }
 }

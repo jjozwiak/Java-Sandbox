@@ -1,6 +1,13 @@
-//package org.jsoup.examples;
+/*
+ * Variables
+ * Iterations
+ * User-defined methods
+ * Method argument passing
+ * Constructor
+ * ArrayList
+ * User-defined class
+ */
 
-// import java.util.StringTokenizer;
 import java.util.ArrayList;
 import org.jsoup.Jsoup;
 import org.jsoup.helper.Validate;
@@ -26,19 +33,19 @@ public class WebPage {
         imageFiles = new ArrayList<String>();
     }
 
-    public void printFiles()
-    {
-        for (Element image : images) {
+    // public void printFiles()
+    // {
+    //     for (Element image : images) {
 
-            String fileName = image.attr("src");
+    //         String fileName = image.attr("src");
 
-            String[] bits = fileName.split("/");
-            String lastOne = bits[bits.length-1];
+    //         String[] bits = fileName.split("/");
+    //         String lastOne = bits[bits.length-1];
 
-            System.out.println(lastOne);
+    //         System.out.println(lastOne);
 
-        }
-    }
+    //     }
+    // }
 
     public void addToImagesList(ArrayList<String> imagesList)
     {

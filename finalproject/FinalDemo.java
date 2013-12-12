@@ -123,7 +123,7 @@ public class FinalDemo {
                 results.printResults(results.imageFilesFound, results.imageFilesNotFound);
                 break;
             case 2:
-                results.printResults(results.imageFilesFound, 1);
+                results.printResults(results.imageFilesNotFound, 1);
                 break;
             case 3:
                 results.printResults(results.imageFilesFound, 2);

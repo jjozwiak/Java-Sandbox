@@ -1,3 +1,12 @@
+/*
+ * Variables
+ * Conditionals
+ * User-defined methods
+ * Method argument passing
+ * Value-returning methods
+ * User-defined class
+ */
+
 import java.io.IOException;
 import java.net.URL;
 import java.net.MalformedURLException;  
